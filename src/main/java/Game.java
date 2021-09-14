@@ -65,7 +65,7 @@ public class Game extends JFrame
     {
         pack();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setTitle("White player's turn 1");
+        setTitle("Белый ходит. Ход 1");
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
@@ -101,7 +101,7 @@ public class Game extends JFrame
                     gameBoard.switchTurn();
                     turnNumber++;
                     String current = gameBoard.turn.getTitle();
-                    this.setTitle(current + " player's turn " + turnNumber / 2);
+                    this.setTitle(current + " ходит. Ход " + turnNumber / 2);
                 }
             }
         }
