@@ -112,16 +112,16 @@ public class Game extends JFrame
         String winner = gameBoard.turn.getTitle();
         ImageIcon icon = new ImageIcon(getClass()
                 .getResource("img/" + gameBoard.turn.getTile().getTitle() + ".png"));
-        JOptionPane.showMessageDialog(this, winner + " player wins the game!",
-                "Congratulations!", JOptionPane.INFORMATION_MESSAGE, icon);
+        JOptionPane.showMessageDialog(this, winner + " игрок победил!",
+                "Поздравляю!", JOptionPane.INFORMATION_MESSAGE, icon);
         this.dispose();
     }
 
 
     private void tieGame()
     {
-        JOptionPane.showMessageDialog(this, "It's a tie!",
-                "Game Over!", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Вилка!",
+                "Игра окончена!", JOptionPane.INFORMATION_MESSAGE);
         this.dispose();
     }
 

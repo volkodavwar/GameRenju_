@@ -1,3 +1,7 @@
+import com.sun.xml.internal.ws.api.message.Message;
+
+import java.io.IOException;
+
 class Board
 {
     private final int SIZE = Game.SIZE;
@@ -30,17 +34,169 @@ class Board
 
     boolean tieCondition()
     {
-        for(int x = 0; x < SIZE; x++)
-        {
-            for (int y = 0; y < SIZE; y++)
-            {
-                if (this.board[x][y].getStatus() == Status.EMPTY)
-                {
-                    return false;
+        //-------New
+        for(int x = 0; x < SIZE; x++) {
+            for (int y = 0; y < SIZE; y++) {
+                try {
+                    try {
+                        if ((this.board[x][y].getStatus() == Status.BLACK) &&
+                                (this.board[x + 2][y].getStatus() == Status.BLACK) &&
+                                (this.board[x + 1][y - 1].getStatus() == Status.BLACK) &&
+                                (this.board[x + 1][y - 2].getStatus() == Status.BLACK)) {
+                            return true;
+                        }
+                    } catch (Exception e) {
+
+                    }
+                   try{
+                       if ((this.board[x][y].getStatus() == Status.BLACK) &&
+                               (this.board[x + 2][y].getStatus() == Status.BLACK) &&
+                               (this.board[x + 1][y + 1].getStatus() == Status.BLACK) &&
+                               (this.board[x + 1][y + 2].getStatus() == Status.BLACK)) {
+                           return true;
+                       }
+                   } catch (Exception e) {
+
+                   }
+                    try {
+                        if ((this.board[x][y].getStatus() == Status.BLACK) &&
+                                (this.board[x + 2][y].getStatus() == Status.BLACK) &&
+                                (this.board[x + 1][y - 2].getStatus() == Status.BLACK) &&
+                                (this.board[x + 1][y - 3].getStatus() == Status.BLACK) &&
+                                (this.board[x + 1][y - 4].getStatus() == Status.BLACK)) {
+                            return true;
+                        }
+                    } catch (Exception e) {
+
+                    }
+                    try {
+                        if ((this.board[x][y].getStatus() == Status.BLACK) &&
+                                (this.board[x + 2][y].getStatus() == Status.BLACK) &&
+                                (this.board[x + 1][y + 2].getStatus() == Status.BLACK) &&
+                                (this.board[x + 1][y + 3].getStatus() == Status.BLACK) &&
+                                (this.board[x + 1][y + 4].getStatus() == Status.BLACK)) {
+                            return true;
+                        }
+                    } catch (Exception e) {
+
+                    }
+                    try {
+                        if (this.board[x][y].getStatus() == Status.BLACK)
+
+                            if ((this.board[x - 1][y].getStatus() == Status.BLACK) &&
+                                    (this.board[x - 2][y].getStatus() == Status.BLACK) &&
+                                    (this.board[x - 3][y].getStatus() == Status.EMPTY) &&
+                                    (this.board[x - 3][y - 1].getStatus() == Status.BLACK) &&
+                                    (this.board[x - 3][y - 2].getStatus() == Status.BLACK) &&
+                                    (this.board[x - 3][y - 3].getStatus() == Status.BLACK)) {
+                                return true;
+                            }
+                        } catch (Exception e) {
+
+                        }
+                            try {
+                                if ((this.board[x + 1][y].getStatus() == Status.BLACK) &&
+                                        (this.board[x + 2][y].getStatus() == Status.BLACK) &&
+                                        (this.board[x + 3][y].getStatus() == Status.BLACK) &&
+                                        (this.board[x + 3][y + 1].getStatus() == Status.BLACK) &&
+                                        (this.board[x + 3][y + 2].getStatus() == Status.BLACK) &&
+                                        (this.board[x + 3][y + 3].getStatus() == Status.BLACK)) {
+                                    return true;
+                                }
+                            }catch (Exception e) {
+
+                            }
+
+                            try {
+                                if ((this.board[x + 1][y].getStatus() == Status.BLACK) &&
+                                        (this.board[x + 2][y].getStatus() == Status.BLACK) &&
+                                        (this.board[x + 3][y].getStatus() == Status.BLACK) &&
+                                        (this.board[x + 3][y - 1].getStatus() == Status.BLACK) &&
+                                        (this.board[x + 3][y - 2].getStatus() == Status.BLACK) &&
+                                        (this.board[x + 3][y - 3].getStatus() == Status.BLACK)) {
+                                    return true;
+                                }
+                            }catch (Exception e) {
+
+                            }
+                            try {
+                                if ((this.board[x - 1][y].getStatus() == Status.BLACK) &&
+                                        (this.board[x - 2][y].getStatus() == Status.BLACK) &&
+                                        (this.board[x - 3][y].getStatus() == Status.BLACK) &&
+                                        (this.board[x - 3][y + 1].getStatus() == Status.BLACK) &&
+                                        (this.board[x - 3][y + 2].getStatus() == Status.BLACK) &&
+                                        (this.board[x - 3][y + 3].getStatus() == Status.BLACK)) {
+                                    return true;
+                                }
+                            }catch (Exception e) {
+
+                            }
+                             try {
+                                 if ((this.board[x + 1][y - 1].getStatus() == Status.BLACK) &&
+                                         (this.board[x + 2][y - 2].getStatus() == Status.BLACK) &&
+                                         (this.board[x - 1][y - 1].getStatus() == Status.BLACK) &&
+                                         (this.board[x - 2][y - 2].getStatus() == Status.BLACK)) {
+                                     return true;
+                                 }
+                             } catch (Exception e) {
+
+                             }
+                             try {
+                                 if ((this.board[x - 1][y + 1].getStatus() == Status.BLACK) &&
+                                         (this.board[x - 2][y + 2].getStatus() == Status.BLACK) &&
+                                         (this.board[x - 1][y + 1].getStatus() == Status.BLACK) &&
+                                         (this.board[x + 2][y + 2].getStatus() == Status.BLACK)) {
+                                     return true;
+                                 }
+                             }catch (Exception e) {
+
+                             }
+                            try {
+                                if ((this.board[x - 1][y - 1].getStatus() == Status.BLACK) &&
+                                        (this.board[x - 2][y - 2].getStatus() == Status.BLACK) &&
+                                        (this.board[x - 1][y + 1].getStatus() == Status.BLACK) &&
+                                        (this.board[x - 2][y + 2].getStatus() == Status.BLACK)) {
+                                    return true;
+                                }
+                            }catch (Exception e) {
+
+                            }
+                             try {
+                                 if ((this.board[x + 1][y + 1].getStatus() == Status.BLACK) &&
+                                         (this.board[x + 2][y + 2].getStatus() == Status.BLACK) &&
+                                         (this.board[x + 1][y - 1].getStatus() == Status.BLACK) &&
+                                         (this.board[x + 2][y - 2].getStatus() == Status.BLACK)) {
+                                     return true;
+                                 }
+                             } catch (Exception e) {
+
+                             }
+                            try {
+                                if ((this.board[x + 1][y - 1].getStatus() == Status.BLACK) &&
+                                        (this.board[x + 1][y + 1].getStatus() == Status.BLACK) &&
+                                        (this.board[x + 2][y].getStatus() == Status.BLACK)) {
+                                    return true;
+                                }
+                            } catch (Exception e) {
+
+                            }
+                            try {
+                                if ((this.board[x][y].getStatus() == Status.WHITE) &&
+                                    (this.board[x][y - 1].getStatus() == Status.WHITE) &&
+                                    (this.board[x + 2][y].getStatus() == Status.WHITE) &&
+                                    (this.board[x + 3][y].getStatus() == Status.WHITE) &&
+                                    (this.board[x + 2][y + 1].getStatus() == Status.WHITE) &&
+                                    (this.board[x + 3][y + 2].getStatus() == Status.WHITE)) {
+                                return true;
+                            }
+                        } catch (Exception e) {
+
+                            }
+                    } catch (Exception e) {
                 }
-            }
+                }
         }
-        return true;
+        return false;
     }
 
 

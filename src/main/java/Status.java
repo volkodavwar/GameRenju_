@@ -1,9 +1,9 @@
 public enum Status {
 
 
-    EMPTY ("Empty"),
-    BLACK ("Black"),
-    WHITE ("White");
+    EMPTY ("Пусто"),
+    BLACK ("Черный"),
+    WHITE ("Белый");
 
     private String title;
 
@@ -16,8 +16,8 @@ public enum Status {
     }
 
     public Tile getTile() {
-        if (title.equals("Black")) return Tile.B;
-        if (title.equals("White")) return Tile.W;
+        if (title.equals("Черный")) return Tile.B;
+        if (title.equals("Белый")) return Tile.W;
         throw new IllegalArgumentException("Tile  doesn't exists");
     }
 
