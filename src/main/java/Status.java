@@ -18,7 +18,7 @@ public enum Status {
     public Tile getTile() {
         if (title.equals("Черный")) return Tile.B;
         if (title.equals("Белый")) return Tile.W;
-        throw new IllegalArgumentException("Tile  doesn't exists");
+        throw new IllegalArgumentException("Ячейка не найдена");
     }
 
 
